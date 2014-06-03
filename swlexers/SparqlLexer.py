@@ -31,7 +31,7 @@ class SparqlLexer(RegexLexer):
              r'offset|bindings|load|clear|drop|create|add|move|copy|'
              r'insert\s+data|delete\s+data|delete\s+where|delete|insert|'
              r'using named|using|graph|default|named|all|optional|service|'
-             r'silent|bind|union|not in|in|as|a)', Keyword),
+             r'silent|bind|union|not in|in|as|a|asc|desc)', Keyword),
             (r'(prefix|base)(\s+)([a-z][a-z\d_\-]*)(\s*)(\:)', bygroups(Keyword, Whitespace, Name.Namespace, Whitespace, Punctuation)),
             (r'\?[a-z_][a-z\d_]*', Name.Variable),
             (r'<[^>]+>', Name.Label),
@@ -47,7 +47,7 @@ class SparqlLexer(RegexLexer):
             (r'[+\-]?\d*\.\d+', Number.Float),
             (r'[+\-]?\d*(:?\.\d+)?[eE][+\-]?\d+', Number.Float),
             (r'[+\-]?\d+', Number.Integer),
-            (r'(\|\||&&|=|\*|\-|\+|/)', Operator),
+            (r'(\|\||&&|=|\*|\-|\+|>|<|/)', Operator),
             (r'[(){}.;,:^]', Punctuation),
             (r'#[^\n]+', Comment),
             (r'"""', String, 'triple-double-quoted-string'),
